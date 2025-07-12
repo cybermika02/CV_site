@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interactif - Votre Nom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CV<span>.</span></a>
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Accueil</a>
+                <a href="#about">À propos</a>
+                <a href="#experience">Expérience</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Bonjour, je suis <span class="text-blue-500">Votre Nom</span></h1>
+            <h2 class="hero-subtitle">Développeur Full Stack</h2>
+            <p class="hero-description">
+                Passionné par la création d'expériences web modernes et performantes. 
+                Je combine design et technologie pour construire des solutions innovantes.
+            </p>
+            <div>
+                <a href="#contact" class="btn">Contactez-moi</a>
+                <a href="#portfolio" class="btn btn-outline">Voir mon travail</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d476d404-9a19-4130-b530-b380eae24ccc.png" alt="Portrait professionnel de Votre Nom">
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Qui suis-je ?</h3>
+                    <p>
+                        Je suis un développeur full stack passionné avec plusieurs années d'expérience dans la création d'applications web modernes. 
+                        Je suis spécialisé dans les technologies JavaScript comme React, Node.js et Vue.js.
+                    </p>
+                    <p>
+                        Mon objectif est de créer des interfaces utilisateur intuitives couplées à des architectures back-end robustes 
+                        pour offrir des expériences digitales exceptionnelles.
+                    </p>
+                    
+                    <h3 class="mt-8">Mes compétences</h3>
+                    <div class="skills">
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">TypeScript</div>
+                        <div class="skill">React</div>
+                        <div class="skill">Node.js</div>
+                        <div class="skill">Vue.js</div>
+                        <div class="skill">HTML/CSS</div>
+                        <div class="skill">MongoDB</div>
+                        <div class="skill">PostgreSQL</div>
+                        <div class="skill">Docker</div>
+                        <div class="skill">Git</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d022010-bf8f-4877-9b26-57b89b8b06a8.png" alt="Votre Nom travaillant sur un ordinateur portable">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Mon parcours</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - Présent</div>
+                        <h3 class="timeline-title">Développeur Full Stack Senior</h3>
+                        <p class="timeline-desc">
+                            Lead développeur sur plusieurs projets critiques. Architecture de solutions microservices et 
+                            mise en place de bonnes pratiques de développement.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2021</div>
+                        <h3 class="timeline-title">Développeur Front-end</h3>
+                        <p class="timeline-desc">
+                            Création d'interfaces utilisateur complexes avec React et Vue.js.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2018</div>
+                        <h3 class="timeline-title">Développeur Back-end</h3>
+                        <p class="timeline-desc">
+                            Développement d'APIs RESTful avec Node.js et Express.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2012 - 2016</div>
+                        <h3 class="timeline-title">Diplôme d'Ingénieur Informatique</h3>
+                        <p class="timeline-desc">
+                            Formation complète en génie logiciel avec spécialisation en systèmes distribués.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Mes projets</h2>
+            <div class="portfolio-grid">
+                <!-- Projets ici -->
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div><h3>Email</h3><p>contact@votrenom.com</p></div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div><h3>Téléphone</h3><p>+33 6 12 34 56 78</p></div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><h3>Localisation</h3><p>Paris, France</p></div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-[var(--footer-color)]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col items-center">
+                <a href="#hero" class="text-2xl font-bold mb-6 neon-glow">IA<span class="text-[var(--accent-neon)]">.</span>CV</a>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-8">
+                    <a href="#about" class="hover:text-[var(--accent-neon)] transition">À Propos</a>
+                    <a href="#skills" class="hover:text-[var(--accent-neon)] transition">Compétences</a>
+                    <a href="#projects" class="hover:text-[var(--accent-neon)] transition">Projets</a>
+                    <a href="#experience" class="hover:text-[var(--accent-neon)] transition">Expérience</a>
+                    <a href="#contact" class="hover:text-[var(--accent-neon)] transition">Contact</a>
+                </div>
+                
+                <div class="flex space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/mickael-fizaine/" class="w-10 h-10 bg-[var(--accent-neon)] bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/cybermika02" class="w-10 h-10 bg-[var(--accent-neon)] bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+                    </a>
+                    <a class="w-10 h-10 bg-[var(--accent-neon)] bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                        </svg>
+                    </a>
+                    <a class="w-10 h-10 bg-[var(--accent-neon)] bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <p class="text-center opacity-70">&copy; <span id="current-year"></span> Portfolio IA. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
