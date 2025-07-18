@@ -119,6 +119,32 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
         }
+
+        /* Animation d’apparition/disparition */
+        #chatbot-box {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        }
+        #chatbot-box.open {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+        }
+        #chatbot-box.closed {
+        transform: scale(0.8);
+        opacity: 0;
+        pointer-events: none;
+        }
+        /* Bulles adaptatives, max 60% de largeur, retour à la ligne */
+        .chat-bubble {
+        display: inline-block;
+        max-width: 60%;
+        white-space: pre-wrap;      /* garde les sauts de ligne et espace */
+        word-wrap: break-word;      /* force la coupure des mots trop longs */
+        }
+
+
+
     </style>
 </head>
 <body class="dark:bg-[var(--primary-dark)] dark:text-[var(--primary-light)]">
@@ -702,6 +728,50 @@
             </div>
         </div>
     </footer>
+    <!-- Chatbot widget (responsive) -->
+    <div id="chatbot-wrapper"
+        class="fixed bottom-24 inset-x-0 sm:inset-x-auto sm:right-8 flex flex-col items-end z-40 px-4 sm:px-0">
+        <!-- Bouton d'ouverture -->
+        <button id="chatbot-toggle"
+                class="bg-[var(--accent-neon)] text-[var(--primary-dark)]
+                        w-14 h-14 rounded-full shadow-lg
+                        flex items-center justify-center
+                        hover:scale-110 transition-transform sm:mb-0 mb-4">
+            💬
+        </button>
+
+        <!-- Fenêtre de chat -->
+        <div id="chatbot-box"
+            class="hidden flex flex-col
+                    w-full                
+                    sm:w-[90%]            
+                    md:w-[400px]          
+                    lg:w-[600px]        
+                    h-[50vh]             
+                    mt-2
+                    bg-[var(--glass-light)] dark:bg-[var(--glass-dark)]
+                    rounded-2xl shadow-2xl
+                    overflow-hidden
+                    transform scale-0">
+            <!-- Header -->
+            <div class="bg-[var(--accent-neon)] text-[var(--primary-dark)]
+                        px-4 py-2 flex justify-between items-center">
+            <span>Chatbot IA</span>
+            <button id="chatbot-close" class="text-lg leading-none">&times;</button>
+            </div>
+            <!-- Messages -->
+            <div id="chatbot-messages" class="flex flex-col flex-1 p-4 overflow-y-auto space-y-4">
+            <div class="text-sm text-gray-500 italic">Posez votre question…</div>
+            </div>
+            <!-- Input -->
+            <form id="chatbot-form" class="p-4 border-t border-[rgba(255,255,255,0.2)]">
+            <input type="text" id="chatbot-input" placeholder="Écrire un message…"
+                    class="w-full p-2 rounded-lg
+                            bg-[var(--primary-dark)] text-[var(--primary-light)]
+                            focus:outline-none focus:ring-2 focus:ring-[var(--accent-neon)]" />
+            </form>
+        </div>
+    </div>
 
     <!-- Scroll to Top Button -->
     <button id="scroll-top" class="fixed bottom-8 right-8 w-12 h-12 bg-[var(--accent-neon)] rounded-full flex items-center justify-center opacity-0 invisible transition-all scroll-top-btn">
@@ -1000,6 +1070,95 @@
                 notif.classList.add('hidden');
                 }, 3000);
             });
+
+        // Récupération des éléments
+        const toggleBtn   = document.getElementById('chatbot-toggle');
+        const chatBox     = document.getElementById('chatbot-box');
+        const closeBtn2    = document.getElementById('chatbot-close');
+        const inputField  = document.getElementById('chatbot-input');
+        const messages    = document.getElementById('chatbot-messages');
+        const form        = document.getElementById('chatbot-form');
+
+        // Ouvre le chat
+        function openChat() {
+        chatBox.classList.remove('hidden', 'closed');
+        chatBox.classList.add('open');
+        inputField.focus();
+        }
+
+        // Ferme le chat
+        function closeChat() {
+        chatBox.classList.remove('open');
+        chatBox.classList.add('closed');
+        setTimeout(() => chatBox.classList.add('hidden'), 300);
+        }
+
+        // Toggle ouverture/fermeture
+        toggleBtn.addEventListener('click', () =>
+        chatBox.classList.contains('open') ? closeChat() : openChat()
+        );
+
+        // Croix de fermeture
+        closeBtn2.addEventListener('click', closeChat);
+
+        // Envoi de message (simulé – à remplacer par votre appel API)
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        const msg = inputField.value.trim();
+        if (!msg) return;
+
+        // Bulle utilisateur
+        const userBubble = document.createElement('div');
+        userBubble.className = [
+        'ml-auto',                         // ← pousse la bulle à droite
+        'bg-[var(--accent-neon)]',
+        'text-[var(--primary-dark)]',
+        'p-4',
+        'rounded-xl',
+        'chat-bubble'
+        ].join(' ');
+        userBubble.textContent = msg;
+        messages.appendChild(userBubble);
+
+        inputField.value = '';
+        messages.scrollTop = messages.scrollHeight;
+
+        // Réponse simulée avec avatar
+        setTimeout(() => {
+            // Container pour avatar + bulle, aligné à gauche
+            const botContainer = document.createElement('div');
+            botContainer.className = [
+            'self-start',
+            'flex',
+            'items-start',
+            'space-x-2'
+            ].join(' ');
+
+            // Avatar du bot
+            const avatar = document.createElement('img');
+            avatar.src = 'path/to/avatar.png';  // ← adapte ton chemin d'image
+            avatar.alt = 'Bot';
+            avatar.className = 'w-8 h-8 rounded-full mt-1';
+
+            // Bulle du bot
+            const botBubble = document.createElement('div');
+            botBubble.className = [
+            'bg-[var(--glass-dark)]',
+            'text-[var(--primary-light)]',
+            'p-4',
+            'rounded-xl',
+            'chat-bubble'
+            ].join(' ');
+            botBubble.textContent = 'Réponse du chatbot en cours de développement…';
+
+            botContainer.append(avatar, botBubble);
+            messages.appendChild(botContainer);
+            messages.scrollTop = messages.scrollHeight;
+        }, 800);
+        });
+
+
+
 
     </script>
 </body>
