@@ -1124,42 +1124,45 @@
         messages.scrollTop = messages.scrollHeight;
 
         // Réponse simulée avec avatar
-        setTimeout(() => {
-            // Container pour avatar + bulle, aligné à gauche
-            const botContainer = document.createElement('div');
-            botContainer.className = [
-            'self-start',
-            'flex',
-            'items-start',
-            'space-x-2'
-            ].join(' ');
+        // ➤ Crée un avatar + une bulle de chargement
+        const botContainer = document.createElement('div');
+        botContainer.className = 'self-start flex items-start space-x-2';
 
-            // Avatar du bot
-            const avatar = document.createElement('img');
-            avatar.src = 'path/to/avatar.png';  // ← adapte ton chemin d'image
-            avatar.alt = 'Bot';
-            avatar.className = 'w-8 h-8 rounded-full mt-1';
+        const avatar = document.createElement('img');
+        avatar.src = 'path/to/avatar.png'; // ⛔ Change ce chemin si tu as l'image dans un autre dossier
+        avatar.alt = 'Bot';
+        avatar.className = 'w-8 h-8 rounded-full mt-1';
 
-            // Bulle du bot
-            const botBubble = document.createElement('div');
-            botBubble.className = [
-            'bg-[var(--glass-dark)]',
-            'text-[var(--primary-light)]',
-            'p-4',
-            'rounded-xl',
-            'chat-bubble'
-            ].join(' ');
-            botBubble.textContent = 'Réponse du chatbot en cours de développement…';
+        const botBubble = document.createElement('div');
+        botBubble.className = 'bg-[var(--glass-dark)] text-[var(--primary-light)] p-4 rounded-xl chat-bubble italic';
+        botBubble.textContent = '...';
 
-            botContainer.append(avatar, botBubble);
-            messages.appendChild(botContainer);
-            messages.scrollTop = messages.scrollHeight;
-        }, 800);
+        botContainer.append(avatar, botBubble);
+        messages.appendChild(botContainer);
+        messages.scrollTop = messages.scrollHeight;
+
+        // ➤ Appel à l’API Render (changer l’URL si nécessaire)
+        fetch('https://gemini-api-flasks.onrender.com/ask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ question: msg })  // msg = ta question
+        })
+        .then(res => res.json())
+        .then(data => {
+        botBubble.classList.remove('italic');
+        botBubble.textContent = data.response || "Je n'ai pas compris.";
+        messages.scrollTop = messages.scrollHeight;
+        })
+        .catch(err => {
+        botBubble.classList.remove('italic');
+        botBubble.textContent = 'Erreur lors de la réponse.';
+        messages.scrollTop = messages.scrollHeight;
+        console.error(err);
         });
 
-
-
-
+        });
     </script>
 </body>
 </html>
